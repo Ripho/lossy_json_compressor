@@ -1,0 +1,1 @@
+# lossy_json_compressor
