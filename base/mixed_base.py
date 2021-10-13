@@ -2,6 +2,10 @@ class MixedBase:
     def __init__(self, base_func):
         self._base_func = base_func
 
+    @classmethod
+    def new_from_list(cls, base_list):
+        return cls(lambda x: base_list[x])
+
     def from_int(self, num):
         rep = []
         i = 0
@@ -21,3 +25,6 @@ class MixedBase:
                 result *= self._base_func(num_len - i - 1)
             result += digit
         return result
+
+    def max_num(self, num_of_digits: int) -> int:
+        return self.to_int([self._base_func(i) - 1 for i in range(num_of_digits)])
